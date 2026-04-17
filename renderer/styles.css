@@ -1,0 +1,147 @@
+:root {
+  --bg: #f4f7f9;
+  --panel: #ffffff;
+  --ink: #15202b;
+  --muted: #5d6a75;
+  --line: #d5dde5;
+  --accent: #0e7490;
+  --accent-strong: #155e75;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 10%, #d8effa, transparent 35%),
+    radial-gradient(circle at 80% 90%, #dcfce7, transparent 35%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.shell {
+  width: min(820px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.drop-zone {
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+  padding: 36px;
+  text-align: center;
+  background: linear-gradient(180deg, #f8fbff, #f5f8fa);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.drop-zone.active {
+  border-color: var(--accent);
+  transform: scale(1.01);
+}
+
+.drop-zone .hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.selected-box {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fafcfe;
+  display: grid;
+  gap: 4px;
+}
+
+.primary {
+  margin-top: 16px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary:hover {
+  background: var(--accent-strong);
+}
+
+.primary:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.status {
+  margin-top: 12px;
+  color: var(--accent-strong);
+  min-height: 1.2em;
+}
+
+.status.error {
+  color: var(--danger);
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 18px;
+  }
+
+  .drop-zone {
+    padding: 24px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+release/
+dist/
+*.exe
+*.zip
+*.app
+*.framework
+.DS_Store

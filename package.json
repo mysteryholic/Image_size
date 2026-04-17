@@ -1,0 +1,45 @@
+{
+  "name": "picture-size-converter",
+  "version": "1.0.0",
+  "description": "Drag-and-drop image resizer desktop app",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac zip",
+    "dist:dir": "electron-builder --mac dir",
+    "dist:win": "electron-builder --win zip",
+    "dist:win:dir": "electron-builder --win dir"
+  },
+  "build": {
+    "appId": "com.local.picturesizeconverter",
+    "productName": "PictureSizeConverter",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.graphics-design"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "dir"
+      ]
+    }
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  }
+}

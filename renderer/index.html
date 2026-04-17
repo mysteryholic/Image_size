@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture Size Converter</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <h1>Picture Size Converter</h1>
+      <p class="subtitle">이미지를 드래그해서 놓고 원하는 크기로 변환하세요.</p>
+
+      <section id="drop-zone" class="drop-zone" aria-label="이미지 드롭 영역">
+        <p>여기로 이미지를 드래그 앤 드롭</p>
+        <p class="hint">또는 클릭해서 이미지 선택</p>
+        <input id="file-input" type="file" accept="image/*" hidden />
+      </section>
+
+      <section class="form-grid">
+        <label>
+          너비 (px)
+          <input id="width" type="number" min="1" placeholder="예: 1200" />
+        </label>
+        <label>
+          높이 (px)
+          <input id="height" type="number" min="1" placeholder="예: 800" />
+        </label>
+        <label>
+          포맷
+          <select id="format">
+            <option value="jpg">JPG</option>
+            <option value="png">PNG</option>
+            <option value="webp">WebP</option>
+          </select>
+        </label>
+      </section>
+
+      <div class="selected-box">
+        <strong>선택된 파일:</strong>
+        <span id="selected-file">없음</span>
+      </div>
+
+      <button id="convert" class="primary">변환하고 저장하기</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
